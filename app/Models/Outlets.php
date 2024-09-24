@@ -27,6 +27,11 @@ class Outlets extends Model
         'lon',
         'operation_time',
         'contact',
+        'description',
+        'logo',
+        'cover',
+        'banner',
+        'featured_image'
     ];
 
     public function menus(): HasMany

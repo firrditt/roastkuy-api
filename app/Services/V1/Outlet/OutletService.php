@@ -2,6 +2,7 @@
 
 namespace App\Services\V1\Outlet;
 
+use App\Http\Resources\BrandsResource;
 use App\Http\Resources\OutletDetailResource;
 use App\Http\Resources\OutletResource;
 use App\Repositories\V1\Outlet\OutletRepository;
@@ -29,6 +30,25 @@ class OutletService
             "statusCode" => Response::HTTP_OK,
             "message" => "Data ditemukan!",
             "data" => OutletResource::collection($data)
+        ];
+   }
+
+   public function doGetAllOutlet()
+   {
+        $data = $this->outletRepository->getAll();
+
+        if (empty($data)) {
+            return (object) [
+                "statusCode" => Response::HTTP_BAD_REQUEST,
+                "message" => "Data tidak ditemukan!",
+                "data" => []
+            ];
+        }
+
+        return (object) [
+            "statusCode" => Response::HTTP_OK,
+            "message" => "Data ditemukan!",
+            "data" => BrandsResource::collection($data)
         ];
    }
 

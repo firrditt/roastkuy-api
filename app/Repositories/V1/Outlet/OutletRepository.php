@@ -16,4 +16,9 @@ class OutletRepository
     {
         return Outlets::with('menus')->get();
     }
+
+    public function getAll()
+    {
+        return Outlets::get();
+    }
 }

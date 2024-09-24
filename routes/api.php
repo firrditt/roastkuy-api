@@ -38,6 +38,7 @@ Route::middleware('guest')->group(function(){
     Route::post('login', [AuthController::class, 'login'])->name('account.login');
     Route::post('register', [AuthController::class, 'register'])->name('account.register');
     // Route::post('verification-account/{uuid}/send', [AuthController::class, 'sendVerification'])->name('account.verification');
+    Route::get('brands', [OutletController::class, 'getAlloutlet'])->name('outlet.show');
     Route::get('outlet', [OutletController::class, 'getAll'])->name('outlet.get');
     Route::get('outlet/{slug}', [OutletController::class, 'getBySlug'])->name('outlet.slug');
     Route::get('menu/{id}', [MenuController::class, 'getMenuById'])->name('menu.id');

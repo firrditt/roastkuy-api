@@ -21,6 +21,15 @@ class OutletController extends Controller
         ], $result->statusCode);
     }
 
+    public function getAlloutlet(){
+        $result = $this->outletService->doGetAllOutlet();
+
+        return response()->json([
+            "message" => $result->message,
+            "data" => $result->data
+        ], $result->statusCode);
+    }
+
     public function getBySlug(string $slug)
     {
         $result = $this->outletService->doGetDataBySlug(slug: $slug);
@@ -30,4 +39,5 @@ class OutletController extends Controller
             "data" => $result->data
         ], $result->statusCode);
     }
-}
+    }
+
